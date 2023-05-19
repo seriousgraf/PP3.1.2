@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/UsersAdd")
-    public String addForm(ModelMap model) {
+    public String showAddUserPage(ModelMap model) {
         model.addAttribute("users", new User());
         return "UserAdd";
     }
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/edit/{id}")
-    public String editPage(@PathVariable("id") Long id, ModelMap model) {
+    public String showEditUserPage(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("user", userService.getById(id));
         return "UserEdit";
     }
