@@ -34,12 +34,14 @@ public class UserServiceImpl implements UserService {
         userRepository.updateUser(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<User> getAllUser() {
         return userRepository.getAllUser();
     }
 
+
+    @Transactional(readOnly = true)
     @Override
     public User getById(Long id) {
         return userRepository.getById(id);
